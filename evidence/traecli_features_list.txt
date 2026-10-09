@@ -1,0 +1,108 @@
+apply_patch_freeform                    stable             true
+apply_patch_preserve_line_endings       under development  false
+apply_patch_streaming_events            under development  false
+apps                                    stable             true
+apps_mcp_path_override                  under development  false
+artifact                                under development  false
+auth_elicitation                        under development  false
+browser_use                             stable             true
+browser_use_external                    stable             true
+child_agents_md                         under development  false
+chronicle                               under development  false
+code_mode                               under development  false
+code_mode_host                          stable             true
+code_mode_interrupt                     under development  false
+code_mode_only                          under development  false
+codex_git_commit                        stable             true
+collaboration_modes                     removed            true
+compaction_image_budget                 under development  false
+computer_use                            stable             true
+content_item_kinds                      under development  false
+context_budget                          under development  false
+context_management                      under development  false
+current_time_reminder                   under development  false
+daemon_auto_start                       experimental       false
+default_mode_request_user_input         under development  false
+dynamic_workflow                        under development  false
+elevated_windows_sandbox                removed            false
+emotion_detection                       removed            false
+emotion_detection_inject                removed            false
+enable_fanout                           removed            false
+enable_mcp_apps                         under development  false
+enable_request_compression              stable             true
+exec_permission_approvals               under development  false
+experimental_windows_sandbox            removed            false
+fast_mode                               stable             true
+fullscreen                              experimental       false
+goals                                   stable             true
+guardian_approval                       stable             true
+guardianv2                              under development  false
+headless_queue_status                   experimental       false
+hooks                                   stable             true
+image_detail_original                   removed            false
+image_generation                        stable             true
+in_app_browser                          stable             true
+in_app_updates                          stable             true
+js_repl                                 removed            false
+js_repl_tools_only                      removed            false
+mcp_2026_07_28                          under development  false
+mcp_oauth_refresh_coordination          under development  false
+memories                                experimental       true
+memory_self_evolution                   experimental       false
+micro_compact                           under development  false
+model_fallback_scheduler                under development  false
+multi_agent                             stable             true
+multi_agent_v2                          stable             true
+personality                             stable             true
+plugin_hooks                            stable             true
+plugins                                 stable             true
+prevent_idle_sleep                      experimental       true
+realtime_conversation                   removed            false
+remote_compaction_v2                    stable             true
+remote_models                           removed            false
+request_permissions_tool                under development  false
+request_rule                            removed            false
+respect_system_proxy                    under development  false
+responses_websocket_response_processed  under development  false
+responses_websockets                    removed            false
+responses_websockets_v2                 removed            false
+retain_client_developer_messages        under development  false
+rollout_budget                          under development  false
+runtime_metrics                         under development  false
+search_tool                             removed            false
+shell_snapshot                          stable             true
+shell_snapshot_v2                       under development  false
+shell_tool                              stable             true
+shell_zsh_fork                          under development  false
+skill_evolution                         under development  false
+skill_mcp_dependency_install            stable             true
+skill_search                            stable             true
+skill_search_logging                    under development  false
+sqlite                                  removed            true
+steer                                   removed            true
+task_v2                                 stable             true
+team_memory                             under development  false
+terminal_resize_reflow                  experimental       true
+terminal_visualization_artifacts        under development  false
+terminal_visualization_instructions     under development  false
+token_budget                            under development  false
+tool_call_mcp_elicitation               stable             true
+tool_search                             stable             true
+tool_search_always_defer_mcp_tools      removed            false
+tool_suggest                            stable             true
+trae_client_owned_freeform              stable             true
+unavailable_dummy_tools                 stable             true
+unavailable_dummy_tools                 under development  true
+unbounded_connection_retries            stable             true
+undo                                    removed            false
+unified_exec                            stable             false
+unified_image_budget                    under development  false
+use_legacy_landlock                     deprecated         false
+use_linux_sandbox_bwrap                 removed            false
+web_search_cached                       deprecated         false
+web_search_request                      deprecated         false
+workspace_dependencies                  stable             true
+workspace_owner_usage_nudge             under development  false
+workspace_undo                          stable             true
+workspace_undo_outside_workspace_roots  stable             true
+worktrees                               under development  false

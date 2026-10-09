@@ -1,0 +1,7 @@
+traex.exe : Error: Trae enterprise authentication required. Run `traecli login` before using TraeCode CLI.
+At line:19 char:8
++ $f4 = (& $exe exec --json --skip-git-repo-check -o out.txt "say hello ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: Trae ent...g TraeCode CLI.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

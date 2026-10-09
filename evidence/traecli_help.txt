@@ -1,0 +1,190 @@
+traex.exe : WARNING: proceeding, even though we could not update PATH: 拒绝访问。 (os error 5)
+At line:15 char:3008
++ ... ite-Output "=== --help (前 60 行) ==="; $h = & $exe --help 2>&1 | Out-S ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: procee...问。 (os error 5):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+TraeCode CLI
+
+If no subcommand is specified, options will be forwarded to the interactive CLI.
+
+Usage: traecli [OPTIONS] [PROMPT]
+       traecli [OPTIONS] <COMMAND> [ARGS]
+
+Commands:
+  dashboard       Browse sessions and agent activity on the shared app-server daemon
+  exec            Run TraeCode CLI non-interactively [aliases: e]
+  review          Run a code review non-interactively
+  login           Manage login
+  update          Check for and install TraeCode CLI updates
+  logout          Remove stored authentication credentials
+  mcp             Manage external MCP servers for TraeCode CLI
+  plugin          Manage TraeCode CLI plugins
+  channel         Set up messaging channels
+  mcp-server      Start TraeCode CLI as an MCP server (stdio)
+  acp             Run as an ACP (Agent Client Protocol) server
+  app-server      [experimental] Run the app server or related tooling
+  remote-control  [experimental] Start a headless app-server with remote control enabled
+  completion      Generate shell completion scripts
+  sandbox         Run commands within a TraeCode CLI-provided sandbox
+  debug           Debugging tools
+  models          List available models
+  apply           Apply the latest diff produced by TraeCode CLI as a `git apply` to your local
+                  working tree [aliases: a]
+  resume          Resume a previous interactive session (picker by default; use --last to continue
+                  the most recent)
+  fork            Fork a previous interactive session (picker by default; use --last to fork the
+                  most recent)
+  archive         Archive a saved session by id
+  delete          Permanently delete a saved session by id
+  unarchive       Unarchive a saved session by id
+  exec-server     [EXPERIMENTAL] Run the standalone exec-server service
+  features        Inspect feature flags
+  doctor          Collect local diagnostics for support
+  migrate         Migrate legacy traecli (traecli.yaml) configuration to traecli.toml
+  help            Print this message or the help of the given subcommand(s)
+
+Arguments:
+  [PROMPT]
+          Optional user prompt to start the session. If stdin is piped, it is appended as a
+          `<stdin>` block; without a prompt, stdin becomes the prompt
+
+Options:
+  -c, --config <key=value>
+          Override a configuration value that would otherwise be loaded from `~/.trae/traecli.toml`.
+          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed
+          as TOML. If it fails to parse as TOML, the raw string is used as a literal.
+          
+          Examples: - `-c model="o3"` - `-c 'sandbox_permissions=["disk-full-read-access"]'` - `-c
+          shell_environment_policy.inherit=all`
+
+      --enable <FEATURE>
+          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`
+
+      --disable <FEATURE>
+          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`
+
+      --remote <ADDR>
+          Connect the TUI to a remote app server websocket endpoint.
+          
+          Accepted forms: `ws://host:port` or `wss://host:port`.
+
+      --remote-auth-token-env <ENV_VAR>
+          Name of the environment variable containing the bearer token to send to a remote app
+          server websocket
+
+  -V, --version
+          Print version
+          
+          [aliases: -v]
+
+      --acp
+          Start TRAE CLI as an ACP server over stdio. Equivalent to `traecli acp serve`
+
+      --disabled-tool <TOOL_NAME>
+          Disable an ACP compatibility tool for this invocation
+
+  -w, --worktree [<NAME>]
+          Start in a fresh git worktree for isolation. Optionally provide a name. Use
+          `-w`/`--worktree` for auto-naming or `-w NAME`/`--worktree NAME` to specify. If NAME
+          matches a top-level subcommand, use `--worktree=NAME`/`-w=NAME`
+
+      --worktree-base <REF>
+          Base ref used when creating a --worktree session, for example `origin/release`
+
+      --worktree-mode <MODE>
+          Worktree creation strategy to use with --worktree
+          
+          [possible values: git, reflink]
+
+      --resume [<SESSION_ID>]
+          Resume a local session by ID, or auto-resume the most recent local session if no ID is
+          provided
+
+      --session-id <SESSION_ID>
+          Legacy compatibility flag for selecting or naming the session
+
+      --shell-tool-timeout <DURATION>
+          Hard timeout for shell tool execution. Any shell process is unconditionally killed after
+          this duration. Accepts "120s", "2m", or bare milliseconds
+
+      --no-daemon
+          Use an embedded server without probing or starting the shared background server
+
+  -i, --image <FILE>...
+          Optional image(s) to attach to the initial prompt
+
+  -m, --model <MODEL>
+          Model the agent should use
+
+      --oss
+          Use open-source provider
+
+      --local-provider <OSS_PROVIDER>
+          Specify which local provider to use (lmstudio or ollama). If not specified with --oss,
+          will use config default or show selection
+
+  -p, --profile <CONFIG_PROFILE>
+          Layer $TRAE_HOME/<name>.traecli.toml on top of the base user config
+
+      --permission-mode <MODE>
+          Select the permission mode preset to use
+
+          Possible values:
+          - default:            TraeCode CLI can read and edit files in the current workspace, and
+            run commands. Approval is required to access the internet or edit other files.
+            (Identical to Agent mode)
+          - bypass_permissions: TraeCode CLI can edit files outside this workspace and access the
+            internet without asking for approval. Exercise caution when using
+          - auto:               Same workspace-write permissions as Workspace Edit, but eligible
+            on-request approvals are routed through the auto-reviewer subagent
+
+  -s, --sandbox <SANDBOX_MODE>
+          Select the sandbox policy to use when executing model-generated shell commands
+          
+          [possible values: read-only, workspace-write, danger-full-access]
+
+  -y, --dangerously-bypass-approvals-and-sandbox
+          Skip all confirmation prompts and execute commands without sandboxing. EXTREMELY
+          DANGEROUS. Intended solely for running in environments that are externally sandboxed
+
+      --dangerously-bypass-hook-trust
+          Run enabled hooks without requiring persisted hook trust for this invocation. DANGEROUS.
+          Intended only for automation that already vets hook sources
+
+  -C, --cd <DIR>
+          Tell the agent to use the specified directory as its working root
+
+      --add-dir <DIR>
+          Additional directories that should be writable alongside the primary workspace
+
+  -a, --ask-for-approval <APPROVAL_POLICY>
+          Configure when the model requires human approval before executing a command
+
+          Possible values:
+          - on-failure: DEPRECATED: Run all commands without asking for user approval. Only asks for
+            approval if a command fails to execute, in which case it will escalate to the user to
+            ask for un-sandboxed execution. Prefer `on-request` for interactive runs or `never` for
+            non-interactive runs
+          - on-request: The model decides when to ask the user for approval
+          - never:      Never ask for user approval Execution failures are immediately returned to
+            the model
+
+      --search
+          Enable live web search. When enabled, the native Responses `web_search` tool is available
+          to the model (no per‑call approval)
+
+      --no-alt-screen
+          Disable alternate screen mode
+          
+          Runs the TUI in inline mode, preserving terminal scrollback history.
+
+      --allowed-tool <TOOL>
+          Allow a Bash(pattern) command for this session (can be specified multiple times)
+
+      --disallowed-tool <TOOL>
+          Disallow a tool for this session (can be specified multiple times)
+
+  -h, --help
+          Print help (see a summary with '-h')

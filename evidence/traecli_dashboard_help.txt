@@ -1,0 +1,41 @@
+Browse sessions and agent activity on the shared app-server daemon
+
+Usage: traecli dashboard [OPTIONS]
+
+Options:
+  -c, --config <key=value>
+          Override a configuration value that would otherwise be loaded from `~/.trae/traecli.toml`.
+          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed
+          as TOML. If it fails to parse as TOML, the raw string is used as a literal.
+          
+          Examples: - `-c model="o3"` - `-c 'sandbox_permissions=["disk-full-read-access"]'` - `-c
+          shell_environment_policy.inherit=all`
+
+      --enable <FEATURE>
+          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`
+
+      --remote <ADDR>
+          Connect the TUI to a remote app server websocket endpoint.
+          
+          Accepted forms: `ws://host:port` or `wss://host:port`.
+
+      --disable <FEATURE>
+          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`
+
+      --remote-auth-token-env <ENV_VAR>
+          Name of the environment variable containing the bearer token to send to a remote app
+          server websocket
+
+  -C, --cd <DIR>
+          Use this directory for new sessions on a remote server
+
+      --no-alt-screen
+          Disable alternate screen mode
+
+  -w, --worktree [<NAME>]
+          Start in a fresh git worktree for isolation. Optionally provide a name. Use
+          `-w`/`--worktree` for auto-naming or `-w NAME`/`--worktree NAME` to specify. If NAME
+          matches a top-level subcommand, use `--worktree=NAME`/`-w=NAME`
+
+  -h, --help
+          Print help (see a summary with '-h')

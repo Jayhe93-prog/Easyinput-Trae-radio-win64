@@ -1,0 +1,47 @@
+TraeCode CLI doctor
+
+System
+  version:  0.207.1-tob
+  os:       windows x86_64
+  cwd:      C:\Users\ASUS\larktmp
+  terminal: Dumb
+  shell:    C:\Windows\system32\cmd.exe
+
+Config
+  TRAE_HOME:       C:\Users\ASUS\larktmp\traeh
+  TRAECLI_HOME:   C:\Users\ASUS\larktmp\traeh\cli
+  log_dir:         C:\Users\ASUS\larktmp\traeh\cli\log
+  model_provider:  trae
+  model:           default
+  permission_mode: Custom
+  approval_policy: OnRequest
+  sandbox:         Managed
+
+Auth
+  required: trae
+  status:   not_logged_in
+
+MCP
+  servers: 0 total, 0 enabled, 0 disabled
+
+Environment
+  TRAE_HOME: set
+  TRAECLI_HOME: unset
+  TRAE_API_BASE_URL: unset
+  TRAE_SURFACE_FUNCTION: unset
+  TRAE_ENV: unset
+  TRAE_ACCESS_TOKEN: unset
+  HTTPS_PROXY: unset
+  HTTP_PROXY: unset
+  ALL_PROXY: unset
+  NO_PROXY: unset
+  https_proxy: unset
+  http_proxy: unset
+  all_proxy: unset
+  no_proxy: unset
+
+Update
+  status: UpToDate
+  current: 0.207.1-tob
+  latest:  0.207.1-tob
+  channel: tob

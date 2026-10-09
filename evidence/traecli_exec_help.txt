@@ -1,0 +1,127 @@
+Run TraeCode CLI non-interactively
+
+Usage: traecli exec [OPTIONS] [PROMPT]
+       traecli exec [OPTIONS] <COMMAND> [ARGS]
+
+Commands:
+  resume  Resume a previous session by id or pick the most recent with --last
+  fork    Fork a previous session by id into a new session
+  review  Run a code review against the current repository
+  help    Print this message or the help of the given subcommand(s)
+
+Arguments:
+  [PROMPT]
+          Initial instructions for the agent. If not provided as an argument (or if `-` is used),
+          instructions are read from stdin. If stdin is piped and a prompt is also provided, stdin
+          is appended as a `<stdin>` block. Prefix with `/name` to invoke an enabled skill or custom
+          command
+
+Options:
+  -c, --config <key=value>
+          Override a configuration value that would otherwise be loaded from `~/.trae/traecli.toml`.
+          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed
+          as TOML. If it fails to parse as TOML, the raw string is used as a literal.
+          
+          Examples: - `-c model="o3"` - `-c 'sandbox_permissions=["disk-full-read-access"]'` - `-c
+          shell_environment_policy.inherit=all`
+
+      --enable <FEATURE>
+          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`
+
+      --disable <FEATURE>
+          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`
+
+  -i, --image <FILE>...
+          Optional image(s) to attach to the initial prompt
+
+  -m, --model <MODEL>
+          Model the agent should use
+
+      --oss
+          Use open-source provider
+
+      --local-provider <OSS_PROVIDER>
+          Specify which local provider to use (lmstudio or ollama). If not specified with --oss,
+          will use config default or show selection
+
+  -p, --profile <CONFIG_PROFILE>
+          Layer $TRAE_HOME/<name>.traecli.toml on top of the base user config
+
+      --permission-mode <MODE>
+          Select the permission mode preset to use
+
+          Possible values:
+          - default:            TraeCode CLI can read and edit files in the current workspace, and
+            run commands. Approval is required to access the internet or edit other files.
+            (Identical to Agent mode)
+          - bypass_permissions: TraeCode CLI can edit files outside this workspace and access the
+            internet without asking for approval. Exercise caution when using
+          - auto:               Same workspace-write permissions as Workspace Edit, but eligible
+            on-request approvals are routed through the auto-reviewer subagent
+
+  -s, --sandbox <SANDBOX_MODE>
+          Select the sandbox policy to use when executing model-generated shell commands
+          
+          [possible values: read-only, workspace-write, danger-full-access]
+
+  -y, --dangerously-bypass-approvals-and-sandbox
+          Skip all confirmation prompts and execute commands without sandboxing. EXTREMELY
+          DANGEROUS. Intended solely for running in environments that are externally sandboxed
+
+      --dangerously-bypass-hook-trust
+          Run enabled hooks without requiring persisted hook trust for this invocation. DANGEROUS.
+          Intended only for automation that already vets hook sources
+
+  -C, --cd <DIR>
+          Tell the agent to use the specified directory as its working root
+
+  -w, --worktree [<NAME>]
+          Start in a fresh git worktree for isolation. Optionally provide a name. Use
+          `-w`/`--worktree` for auto-naming or `-w NAME`/`--worktree NAME` to specify. If NAME
+          matches a top-level subcommand, use `--worktree=NAME`/`-w=NAME`
+
+      --add-dir <DIR>
+          Additional directories that should be writable alongside the primary workspace
+
+      --session-id <SESSION_ID>
+          Legacy compatibility flag for selecting or naming the exec session
+
+      --skip-git-repo-check
+          Allow running TraeCode CLI outside a Git repository
+
+      --ephemeral
+          Run without persisting session files to disk
+
+      --ignore-user-config
+          Do not load `$CODEX_HOME/config.toml`; auth still uses `CODEX_HOME`
+
+      --ignore-rules
+          Do not load user or project execpolicy `.rules` files
+
+      --output-schema <FILE>
+          Path to a JSON Schema file describing the model's final response shape
+
+      --color <COLOR>
+          Specifies color settings for use in the output
+          
+          [default: auto]
+          [possible values: always, never, auto]
+
+      --json
+          Print events to stdout as JSONL
+
+  -o, --output-last-message <FILE>
+          Specifies file where the last message from the agent should be written
+
+      --allowed-tool <TOOL>
+          Allow a Bash(pattern) command for this session (can be specified multiple times)
+
+      --disallowed-tool <TOOL>
+          Disallow a tool for this session (can be specified multiple times)
+
+      --shell-tool-timeout <DURATION>
+          Hard timeout for shell tool execution. Any shell process is unconditionally killed after
+          this duration. Accepts "120s", "2m", or bare milliseconds
+
+  -h, --help
+          Print help (see a summary with '-h')

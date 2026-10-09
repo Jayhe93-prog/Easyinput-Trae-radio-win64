@@ -1,0 +1,15 @@
+[INFO] Fetching release metadata
+[INFO] Downloading Trae CLI 0.207.1 for windows-x86_64
+[INFO] Decompressing verified artifact
+powershell : WARNING: proceeding, even though we could not update PATH: 拒绝访问。 (os error 5)
+At line:15 char:2724
++ ... "1"; $out = powershell -NoProfile -ExecutionPolicy Bypass -File "C:\U ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: procee...问。 (os error 5):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\Users\ASUS\larktmp\install_v2.ps1 : Exception calling "GetFullPath" with "1" argument(s): "The given path's format i
+s not supported."
+    + CategoryInfo          : NotSpecified: (:) [install_v2.ps1], MethodInvocationException
+    + FullyQualifiedErrorId : NotSupportedException,install_v2.ps1
+ 

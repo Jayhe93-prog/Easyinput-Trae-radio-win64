@@ -1,0 +1,14 @@
+# csc 构建中间产物
+dist/*.TMP
+dist/*.pdb
+
+# 运行时数据 / 日志（平时生成在 %LOCALAPPDATA%\TraeRadio）
+ledger.json
+selftest.txt
+logintest.txt
+*.log
+
+# 大文件与凭据（红线：绝不提交）
+*.zip
+.env
+*.pat
