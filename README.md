@@ -4,7 +4,7 @@
 
 ## 来源与致谢
 
-本项目是 zuming58「Codex 任务电台」（`Esayinput-zm-L7`）的 **Trae 移植版**（方案 A）：把其中的「任务绑定层」从 Codex 换成 TraeCode CLI，其余电台机制沿用原设计。感谢原作者的开源工作；再分发时请一并遵守原项目许可证。
+本项目是 zuming58「Codex 任务电台」（[`Esayinput-zm-L7`](https://github.com/zuming58/Esayinput-zm-L7)）的 **Trae 移植版**（方案 A）：把其中的「任务绑定层」从 Codex 换成 TraeCode CLI，其余电台机制沿用原设计。原项目及其上游 `Codex_Keyboard` 均采用 **Apache License 2.0**，本项目沿用同一许可，并保留上游署名与修改说明——详见 [`NOTICE`](./NOTICE)。
 
 ## 仓库内容
 

@@ -1,0 +1,36 @@
+Trae 任务电台（Windows 客户端） / Trae Radio
+Repository: https://github.com/Jayhe93-prog/Easyinput-Trae-radio-win64
+
+This product is a derivative work based on:
+  Esayinput-zm-L7  —  https://github.com/zuming58/Esayinput-zm-L7
+  which is itself based on:
+  Codex_Keyboard   —  https://github.com/Larkspur-Wang/Codex_Keyboard
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+----------- Upstream attribution notices (retained) -----------
+
+EasyInput L7 Windows derivative
+Repository: https://github.com/zuming58/Esayinput-zm-L7
+Based on Codex_Keyboard:
+https://github.com/Larkspur-Wang/Codex_Keyboard
+The upstream Apache-2.0 license and third-party notices are retained.
+Windows derivative changes include the Windows Host and desktop integration,
+USB-preferred / Wi-Fi fallback runtime, provider routing, slot and task LEDs,
+existing Codex desktop task coordination, and an isolated public configuration
+namespace with user-supplied credentials and TTS voice selection.
+The upstream project-specific authorization statement is not a new claim of
+ownership or a license grant for unrelated upstream copies.
+Service names and trademarks belong to their respective owners.
+This project is not affiliated with or endorsed by OpenAI or speech providers.
+
+----------- Changes in this derivative (Trae 任务电台) -----------
+
+- 替换任务绑定层：由 Codex 桌面应用改为 TraeCode CLI（traecli）。
+- 移除 EasyInput 硬件键盘链路，改为 Windows 桌面「任务电台」图形客户端（WinForms），
+  以本地台账管理 4 个槽位，按槽位收发任务并播报结果。
+- 新增 mock 后端（离线链路验证）、登录引导（企业 SSO / 企业 PAT）与自检模式。
+- 新增构建脚本 build.ps1，编译产出单文件 TraeRadio.exe。
+
+本项目与 OpenAI、Trae 及各语音服务商无隶属或背书关系；相关服务名称与商标归各自所有者。
+This project is not affiliated with or endorsed by OpenAI, Trae, or any speech provider.
